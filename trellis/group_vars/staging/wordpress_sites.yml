@@ -1,0 +1,24 @@
+# Documentation: https://roots.io/trellis/docs/remote-server-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/staging/vault.yml
+
+wordpress_sites:
+  wp.jbaker.dev:
+    site_hosts:
+      - canonical: staging.wp.jbaker.dev
+        # redirects:
+        #   - otherdomain.com
+    local_path: ..
+    public_path: public
+    upload_path: content/uploads
+    repo: git@github.com:example/wp.jbaker.dev.git # replace with your Git repo URL
+    branch: master
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: letsencrypt
+    cache:
+      enabled: false
+    xmlrpc:
+      enabled: false

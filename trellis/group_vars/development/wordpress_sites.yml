@@ -1,0 +1,23 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  wp.jbaker.dev:
+    site_hosts:
+      - canonical: wp.jbaker.test
+        redirects:
+          - www.wp.jbaker.test
+    local_path: ..
+    public_path: public
+    upload_path: content/uploads
+    admin_email: admin@wp.jbaker.test
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false
+    xmlrpc:
+      enabled: false
